@@ -1,0 +1,9 @@
+*.log
+*.tmp
+.env
+*.pyc
+__pycache__/
+venv/
+*__pycache__/
+Data/Input/Measurements/Gear
+Data/Input/Reany

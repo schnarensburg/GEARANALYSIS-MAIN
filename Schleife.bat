@@ -1,0 +1,1 @@
+FORFILES /p C:\Users\Administrator\Desktop\Matlab_Code_Daniel\Input_Output\02_CLG_Output /m *.txt /c " cmd /c echo @file && echo Current time is %%time%% && cd C:\Users\Administrator\Desktop\Matlab_Code_Daniel\CutLayerConverter  && CutLayerConverter.exe --filename @file --inspection_plan "KW_Z13" --quit_after_protocol_creation && TIMEOUT /T 10 "
