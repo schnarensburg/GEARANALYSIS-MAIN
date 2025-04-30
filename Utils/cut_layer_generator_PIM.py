@@ -101,40 +101,6 @@ def cut_layer_generator(measurement_file_path):
     reany_input_dir.mkdir(parents=True, exist_ok=True)    
     print_to_text(gearing_cut_layers_print_array, layers, reany_input_dir, measurement_file_path.stem + '_cut_layers')
     
-    # # STL
-    # stl_path = Path(measurement_file_path).stem
-    # stl_output_dir = Path(config.get('dir','reany_input_dir')).parent / 'STL'
-    # stl_output_dir.mkdir(parents=True, exist_ok=True)
-    # tetra_mesh, pt_map = o3d.geometry.TetraMesh.create_from_point_cloud(pc_gear_aligned)
-    # alpha = np.logspace(np.log10(0.00010), np.log10(0.00010), num=1)
-    # mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_alpha_shape(
-    #     pc_gear_aligned, alpha, tetra_mesh, pt_map)
-    # mesh.compute_vertex_normals()
-    # o3d.visualization.draw_geometries([mesh], mesh_show_back_face=True)
-    # o3d.io.write_triangle_mesh(str(stl_output_dir / str(stl_path + '_STL.stl')), mesh)
-
-    # AUSKLAMMERN VON MAX
-    # # --------------------------------------------> Aktueller Stand
-    # topsite_value = get_topside(pc_gear, voxel_size_coarse)
-    # pc_gear.points = o3d.utility.Vector3dVector(np.asarray(pc_gear.points) - np.array([0, 0, topsite_value]))
-
-    # if np.mean(np.asarray(pt_gear.points)[:, 2]) < 0:
-    #     pt_gear.rotate(o3d.geometry.get_rotation_matrix_from_xyz([np.pi, 0, 0]))
-
-    # valid_indices = np.where((np.asarray(pt_gear.points)[:, 2] >= L_b_delta / 2) & (np.asarray(pt_gear.points)[:, 2] <= z_grenz))[0]
-    # pt_gear = pt_gear.select_by_index(valid_indices)
-    # pt_gear.points = o3d.utility.Vector3dVector(np.asarray(pt_gear.points) - np.array([0, 0, np.asarray(pt_gear.points)[:,2].min()]))
-
-    # for layer in range(layers):
-    #     layer_indices = np.where((np.asarray(pt_gear.points)[:, 2] >= cut_layers[layer]) & (np.asarray(pt_gear.points)[:, 2] < cut_layers[layer + 1]))[0]
-    #     pts = np.asarray(pt_gear.points)[layer_indices]
-    #     pts[:, 2] = cut_layers[layer]
-    #     if len(layer_indices) > 0:
-    #         pt_gear.points = o3d.utility.Vector3dVector(pts)
-
-    # # Visualisieren der Punktwolke
-    # o3d.visualization.draw_geometries([pt_gear])
-    
 
 def visualize_layers(gearing_cut_layers_print_array):
 

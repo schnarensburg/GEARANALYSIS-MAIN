@@ -114,7 +114,7 @@ def cut_layer_generator(measurement_file_path):
             gearing_cut_layers_print_array[sum_layer_points:, :, i] = 0
 
     # Visualisieren der Schichten
-    visualize_layers(gearing_cut_layers_print_array)
+    # visualize_layers(gearing_cut_layers_print_array)
 
     # Schreiben der Schichten in eine spezielle Textdatei
     reany_input_dir.mkdir(parents=True, exist_ok=True)    
